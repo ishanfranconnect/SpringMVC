@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,22 +37,15 @@ public class EmployeeController {
         m.addAttribute("cities", city);
         return "index";
     }
-
-
     @RequestMapping("helloform")
     public String showForm(){
         return "index1";
     }
     @RequestMapping(path="/showresult",method=RequestMethod.POST)
-    public String handleForm(@RequestParam("name")String n, @RequestParam("email")String e, @RequestParam("password")String p,Model m){
-        System.out.println("Name is:"+n);
-        System.out.println("Email is:"+e);
-        System.out.println("Password is:"+p);
-
-        m.addAttribute("name",n);
-        m.addAttribute("Email",e);
-        m.addAttribute("Password",p);
+    public String handleForm(@ModelAttribute("e1") Employee e1,BindingResult result){
+        if(result.hasErrors()){
+            return "index1";
+        }
         return "result";
     }
-   
 }
