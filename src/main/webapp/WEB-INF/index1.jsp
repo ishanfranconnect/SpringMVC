@@ -38,7 +38,7 @@
          <label for="name">State:</label><br>
         <input type="text" id="name" name="a.state" placeholder="Enter State" required><br><br>
 
-         <label for="name">Pin:</label><br>
+        <label for="name">Pin:</label><br>
         <input type="number" id="name" name="a.pin" placeholder="Enter Pin" required><br><br>
 
         <input type="submit" value="Submit">

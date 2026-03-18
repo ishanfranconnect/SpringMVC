@@ -15,7 +15,6 @@ public class Employee {
     private Address a=new Address();
     private List<String> skills;
 
-    
     public void setName(String name){
         this.name=name;
     }
